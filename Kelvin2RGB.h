@@ -2,7 +2,7 @@
 //
 //    FILE: Kelvin2RGB.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.0
+// VERSION: 0.1.1
 //    DATE: 2018-01-31
 // PURPOSE: Arduino library for converting temperature to RGB values
 //     URL: https://github.com/RobTillaart/Kelvin2RGB
@@ -12,16 +12,19 @@
 // http://www.zombieprototypes.com/?p=210  
 // https://en.wikipedia.org/wiki/Color_temperature#Categorizing_different_lighting
 
-#define KELVIN2RGB_LIB_VERSION "0.1.0"
+#define KELVIN2RGB_LIB_VERSION "0.1.1"
 
 #include "Arduino.h"
 
 // based on https://en.wikipedia.org/wiki/Color_temperature#Categorizing_different_lighting
 // TODO a memory efficient storage -> uint8_t 17 .. 255 (factor 100)
 //      how? hash function? parameter settings  convert(dayLightSetting)
+// enum DLS ?
+
 /*
     NAME              TEMPERATURE
     =============================
+    dark            = 0;
     match           = 1700;
     sodiumLamp      = 1700;
     candleFlame     = 1850;
@@ -46,6 +49,37 @@
     polewardSky2    = 23000;
     polewardSky3    = 27000;
 */
+
+//
+// based on https://en.wikipedia.org/wiki/Color_temperature#Categorizing_different_lighting
+//
+//      DAY LIGHT SETTING      TEMPERATURE
+//
+#define DLS_dark                  0
+#define DLS_match              1700
+#define DLS_sodiumLamp         1700
+#define DLS_candleFlame        1850
+#define DLS_sunrise            1850
+#define DLS_sunset             1850
+#define DLS_bulb               2400
+#define DLS_bulbSoftWhite      2550
+#define DLS_LEDlamp            2700
+#define DLS_warmWhite          3000
+#define DLS_studioLight        3200
+#define DLS_studioCPlight      3350
+#define DLS_daylightHorizon    5000
+#define DLS_flashLight         5700
+#define DLS_xenonLight         6200
+#define DLS_dayLightBright     6500
+#define DLS_normal             6500
+#define DLS_screenlow          6500
+#define DLS_screenMed          8000
+#define DLS_screenHigh         9500
+#define DLS_polewardSky0      15000
+#define DLS_polewardSky1      19000
+#define DLS_polewardSky2      23000
+#define DLS_polewardSky3      27000
+
 
 
 class Kelvin2RGB

@@ -1,3 +1,9 @@
+
+[![Arduino CI](https://github.com/RobTillaart/Kelvin2RGB/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/RobTillaart/Kelvin2RGB/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/RobTillaart/Kelvin2RGB.svg?maxAge=3600)](https://github.com/RobTillaart/Kelvin2RGB/releases)
+
+
 # Kelvin2RGB
 
 Arduino library for converting temperature to RGB values
@@ -15,7 +21,7 @@ however these are not investigated.
 
 ## Description
 
-The library converts a temperature in Kelvin and an brightness (0..100%) 
+The library converts a temperature in Kelvin and a brightness (0..100%) 
  to 3 numbers red, green and blue.
 These numbers are weights can be used to correct a colorimage for virtual white temperature.
 

@@ -13,7 +13,7 @@
 Kelvin2RGB::Kelvin2RGB()
 {
   _temperature = 0;
-  _brightness  = 0;
+  _brightness  = 0;          // default = darkness
   _red   = 0;
   _green = 0;
   _blue  = 0;
@@ -45,15 +45,15 @@ void Kelvin2RGB::convert_TH(float temperature, float brightness)
   }
   else
   {
-    _red = 329.698727466 * pow(t - 60, -0.1332047592);
+    _red   = 329.698727466  * pow(t - 60, -0.1332047592);
     _green = 288.1221695283 * pow(t - 60, -0.0755148492);
-    _blue = 255;
+    _blue  = 255;
   }
   float f = 0.01 * _brightness;
-  _red   = f * constrain(_red, 0, 255);
-  _green = f * constrain(_green, 0, 255);
-  _blue  = f * constrain(_blue, 0, 255);
-  _rgb = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
+  _red   = constrain(f * _red,   0, 255);
+  _green = constrain(f * _green, 0, 255);
+  _blue  = constrain(f * _blue,  0, 255);
+  _rgb   = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
   
   // divide by 255 to get factors between 0..1
   _red   *=  DIVIDE_255;
@@ -93,10 +93,10 @@ void Kelvin2RGB::convert_NB(float temperature, float brightness)
   }
 
   float f = 0.01 * _brightness;
-  _red   = f * constrain(_red, 0, 255);
-  _green = f * constrain(_green, 0, 255);
-  _blue  = f * constrain(_blue, 0, 255);
-  _rgb = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
+  _red   = constrain(f * _red,   0, 255);
+  _green = constrain(f * _green, 0, 255);
+  _blue  = constrain(f * _blue,  0, 255);
+  _rgb   = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
   
   // divide by 255 to get factors between 0..1
   _red   *=  DIVIDE_255;
