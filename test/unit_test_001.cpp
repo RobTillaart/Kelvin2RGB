@@ -80,7 +80,7 @@ unittest(test_Tanner_Helland)
 {
   Kelvin2RGB tempColor;
 
-  fprintf(stderr, "DLS_warmWhite\t");
+  fprintf(stderr, "DLS_warmWhite\n");
   tempColor.convert_TH(DLS_warmWhite, 100);
 
   assertEqualFloat(3000, tempColor.temperature(), 0.0001);
@@ -88,14 +88,14 @@ unittest(test_Tanner_Helland)
   assertEqualFloat(1, tempColor.red(), 0.0001);
   assertEqualFloat(0.694903, tempColor.green(), 0.0001);
   assertEqualFloat(0.431048, tempColor.blue(), 0.0001);
-  assertEqual(0, tempColor.RGB());
+  assertEqual(16757102, tempColor.RGB());
 }
 
 unittest(test_Neil_Bartlett)
 {
   Kelvin2RGB tempColor;
 
-  fprintf(stderr, "DLS_warmWhite\t");
+  fprintf(stderr, "DLS_warmWhite\n");
   tempColor.convert_NB(DLS_warmWhite, 100);
 
   assertEqualFloat(3000, tempColor.temperature(), 0.0001);
@@ -103,7 +103,7 @@ unittest(test_Neil_Bartlett)
   assertEqualFloat(1, tempColor.red(), 0.0001);
   assertEqualFloat(0.707636, tempColor.green(), 0.0001);
   assertEqualFloat(0.424804, tempColor.blue(), 0.0001);
-  assertEqual(0, tempColor.RGB());
+  assertEqual(16757868, tempColor.RGB());
 }
 
 unittest_main()
