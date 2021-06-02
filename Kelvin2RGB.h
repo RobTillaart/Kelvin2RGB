@@ -56,7 +56,7 @@ class Kelvin2RGB
 {
 public:
   Kelvin2RGB();
-  void begin();
+  void begin();         // empty function - obsolete?
   
   // temp = 0..65500   brightness = 0.0 .. 100.0%
   void convert_TH(float temperature, float brightness = 100);
@@ -65,14 +65,17 @@ public:
   float    temperature() { return _temperature; };
   float    brightness()  { return _brightness;  };
 
-  inline float red()     { return _red;   };
-  inline float green()   { return _green; };
-  inline float blue()    { return _blue;  };
+  // returns 0.0 .. 1.0
+  float    red()         { return _red;   };
+  float    green()       { return _green; };
+  float    blue()        { return _blue;  };
 
   uint32_t RGB()         { return _rgb; };   // 32 bit color
   uint16_t RGB565();                         // 16 bit color
 
 private:
+  void  _normalize();
+
   float    _temperature;
   float    _brightness;
   float    _red;

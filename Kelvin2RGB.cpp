@@ -39,7 +39,7 @@ void Kelvin2RGB::convert_TH(float temperature, float brightness)
   _temperature = constrain(temperature, 0, 65500);
   _brightness = constrain(brightness, 0, 100);
 
-  _red = _green = _blue = 0;
+  _red = _green = _blue = 0;  
   float t = _temperature * 0.01;
 
   if (t <= 66)
@@ -58,16 +58,8 @@ void Kelvin2RGB::convert_TH(float temperature, float brightness)
     _green = 288.1221695283 * pow(t - 60, -0.0755148492);
     _blue  = 255;
   }
-  float f = 0.01 * _brightness;
-  _red   = constrain(f * _red,   0, 255);
-  _green = constrain(f * _green, 0, 255);
-  _blue  = constrain(f * _blue,  0, 255);
-  _rgb   = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
-  
-  // divide by 255 to get factors between 0..1
-  _red   *=  DIVIDE_255;
-  _green *=  DIVIDE_255;
-  _blue  *=  DIVIDE_255;
+
+  _normalize();
 }
 
 
@@ -101,19 +93,11 @@ void Kelvin2RGB::convert_NB(float temperature, float brightness)
     _blue = 255;
   }
 
-  float f = 0.01 * _brightness;
-  _red   = constrain(f * _red,   0, 255);
-  _green = constrain(f * _green, 0, 255);
-  _blue  = constrain(f * _blue,  0, 255);
-  _rgb   = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
-  
-  // divide by 255 to get factors between 0..1
-  _red   *=  DIVIDE_255;
-  _green *=  DIVIDE_255;
-  _blue  *=  DIVIDE_255;
+  _normalize();
 }
 
 
+// 16 bit color
 uint16_t Kelvin2RGB::RGB565()
 {
   uint16_t val = 0;
@@ -124,5 +108,27 @@ uint16_t Kelvin2RGB::RGB565()
   val |= uint8_t(_blue * 32);
   return val; 
 }
+
+
+/////////////////////////////////////////////////////////////
+//
+// private
+//
+void Kelvin2RGB::_normalize()
+{
+  float f = 0.01 * _brightness;
+
+  _red   = constrain(f * _red,   0, 255);
+  _green = constrain(f * _green, 0, 255);
+  _blue  = constrain(f * _blue,  0, 255);
+
+  _rgb   = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
+  
+  // divide by 255 to get factors between 0..1
+  _red   *=  DIVIDE_255;
+  _green *=  DIVIDE_255;
+  _blue  *=  DIVIDE_255;
+}
+
 
 // -- END OF FILE --
