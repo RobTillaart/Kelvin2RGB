@@ -106,7 +106,7 @@ uint32_t Kelvin2RGB::setRGB(float red, float green, float blue, float brightness
   _red   = red;
   _green = green;
   _blue  = blue;
-  normalize();
+  _normalize();
   return _rgb;
 }
 
