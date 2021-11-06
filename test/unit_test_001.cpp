@@ -122,13 +122,13 @@ unittest(test_colour_spaces)
   fprintf(stderr, "BGR   : %d\n", tempColor.BGR());
   fprintf(stderr, "CMYK  : %d\n", tempColor.CMYK());
 
-  assertEqualFloat(100, tempColor.brightness(), 0.0001);
-  assertEqualFloat(1, tempColor.red(), 0.0001);
-  assertEqualFloat(0.707636, tempColor.green(), 0.0001);
-  assertEqualFloat(0.424804, tempColor.blue(), 0.0001);
+  assertEqualFloat(0.9, tempColor.brightness(), 0.0001);
+  assertEqualFloat(0.000004, tempColor.red(),   0.0000001);
+  assertEqualFloat(0.000007, tempColor.green(), 0.0000001);
+  assertEqualFloat(0.000011, tempColor.blue(),  0.0000001);
   assertEqual(16757868, tempColor.RGB());
   assertEqual(16757868, tempColor.BGR());
-  assertEqual(16757868, tempColor.CMYK());
+  assertEqual(-1437269760, tempColor.CMYK());
 }
 
 
