@@ -106,7 +106,7 @@ uint32_t Kelvin2RGB::setRGB(float red, float green, float blue, float brightness
   _red   = red;
   _green = green;
   _blue  = blue;
-  normailize();
+  normalize();
   return _rgb;
 }
 
@@ -130,9 +130,9 @@ uint32_t Kelvin2RGB::CMYK()
   if (k < _green) k = _green;
   if (k < _blue) k = _blue;
   k = 1 - k;
-  uint8_t c = 255 * (1 - _red   - k) / (1 - k);
-  uint8_t m = 255 * (1 - _green - k) / (1 - k);
-  uint8_t y = 255 * (1 - _blue  - k) / (1 - k);
+  uint32_t c = 255 * (1 - _red   - k) / (1 - k);
+  uint32_t m = 255 * (1 - _green - k) / (1 - k);
+  uint32_t y = 255 * (1 - _blue  - k) / (1 - k);
 
   return (c << 24) + (m << 16) + (y << 8) + (k * 255);
 }

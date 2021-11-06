@@ -114,10 +114,10 @@ unittest(test_colour_spaces)
   fprintf(stderr, "test_colour_spaces\n");
   tempColor.setRGB(0.1, 0.2, 0.3, 0.9);
   
-  fprintf(stderr, "BRIGHT: %d\n", tempColor.brightness());
-  fprintf(stderr, "RED   : %d\n", tempColor.red());
-  fprintf(stderr, "GREEN : %d\n", tempColor.green());
-  fprintf(stderr, "BLUE  : %d\n", tempColor.blue());
+  fprintf(stderr, "BRIGHT: %f\n", tempColor.brightness());
+  fprintf(stderr, "RED   : %f\n", tempColor.red());
+  fprintf(stderr, "GREEN : %f\n", tempColor.green());
+  fprintf(stderr, "BLUE  : %f\n", tempColor.blue());
   fprintf(stderr, "RGB   : %d\n", tempColor.RGB());
   fprintf(stderr, "BGR   : %d\n", tempColor.BGR());
   fprintf(stderr, "CMYK  : %d\n", tempColor.CMYK());
