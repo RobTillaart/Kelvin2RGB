@@ -121,6 +121,7 @@ unittest(test_colour_spaces)
   fprintf(stderr, "RGB   : %d\n", tempColor.RGB());
   fprintf(stderr, "BGR   : %d\n", tempColor.BGR());
   fprintf(stderr, "CMYK  : %d\n", tempColor.CMYK());
+  fprintf(stderr, "RGB565: %d\n", tempColor.RGB565());
 
   assertEqualFloat(90, tempColor.brightness(), 0.0001);
   assertEqualFloat(0.450, tempColor.red(),   0.0001);
@@ -129,6 +130,7 @@ unittest(test_colour_spaces)
   assertEqual(7595692, tempColor.RGB());
   assertEqual(65792, tempColor.BGR());
   assertEqual(2130722560, tempColor.CMYK());
+  assertEqual(12345, tempColor.RGB565());
 }
 
 
