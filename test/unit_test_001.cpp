@@ -40,9 +40,11 @@ unittest_setup()
 {
 }
 
+
 unittest_teardown()
 {
 }
+
 
 /*
 unittest(test_new_operator)
@@ -57,9 +59,10 @@ unittest(test_new_operator)
 }
 */
 
+
 unittest(test_constructor)
 {
-  fprintf(stderr, "VERSION: %s\n", KELVIN2RGB_LIB_VERSION);
+  fprintf(stderr, "VERSION: %s\n", (char *) KELVIN2RGB_LIB_VERSION);
   
   Kelvin2RGB tempColor;
 
@@ -87,6 +90,7 @@ unittest(test_Tanner_Helland)
   assertEqual(16757102, tempColor.RGB());
 }
 
+
 unittest(test_Neil_Bartlett)
 {
   Kelvin2RGB tempColor;
@@ -101,6 +105,7 @@ unittest(test_Neil_Bartlett)
   assertEqualFloat(0.424804, tempColor.blue(), 0.0001);
   assertEqual(16757868, tempColor.RGB());
 }
+
 
 unittest_main()
 

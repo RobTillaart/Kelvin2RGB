@@ -1,7 +1,7 @@
 //
 //    FILE: Kelvin2RGB.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.2
+// VERSION: 0.1.3
 //    DATE: 2018-01-31
 // PURPOSE: Arduino library for converting temperature to RGB values
 //     URL: https://github.com/RobTillaart/Kelvin2RGB
@@ -9,7 +9,9 @@
 //  HISTORY
 //  0.1.0    2018-01-31  initial version
 //  0.1.1    2020-12-30  ??
-//  0.1.2    2021-06-01  add RGB565() - 16 bit color - output
+//  0.1.2    2021-06-01  add RGB565() - 16 bit colour - output
+//  0.1.3    2021-11-06  update build-CI, badges
+//                       add setRGB()
 
 
 #include "Kelvin2RGB.h"
@@ -25,6 +27,7 @@ Kelvin2RGB::Kelvin2RGB()
   _red   = 0;
   _green = 0;
   _blue  = 0;
+  _rgb   = 0;
 }
 
 
@@ -97,7 +100,17 @@ void Kelvin2RGB::convert_NB(float temperature, float brightness)
 }
 
 
-// 16 bit color
+uint32_t Kelvin2RGB::setRGB(float red, float green, float blue, float brightness)
+{
+  _brightness = brightness;
+  _red   = red;
+  _green = green;
+  _blue  = blue;
+  normailize();
+  return _rgb;
+}
+  
+// 16 bit colour - of last conversion.
 uint16_t Kelvin2RGB::RGB565()
 {
   uint16_t val = 0;

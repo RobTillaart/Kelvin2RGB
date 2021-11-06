@@ -2,14 +2,14 @@
 //
 //    FILE: Kelvin2RGB.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.2
+// VERSION: 0.1.3
 //    DATE: 2018-01-31
 // PURPOSE: Arduino library for converting temperature to RGB values
 //     URL: https://github.com/RobTillaart/Kelvin2RGB
 //
 
 
-#define KELVIN2RGB_LIB_VERSION        (F("0.1.2"))
+#define KELVIN2RGB_LIB_VERSION            (F("0.1.3"))
 
 #include "Arduino.h"
 
@@ -58,30 +58,35 @@ public:
   Kelvin2RGB();
   void begin();         // empty function - obsolete?
   
-  // temp = 0..65500   brightness = 0.0 .. 100.0%
+  //  temp = 0..65500   brightness = 0.0 .. 100.0%
   void convert_TH(float temperature, float brightness = 100);
   void convert_NB(float temperature, float brightness = 100);
 
   float    temperature() { return _temperature; };
   float    brightness()  { return _brightness;  };
 
-  // returns 0.0 .. 1.0
+  //  returns 0.0 .. 1.0
   float    red()         { return _red;   };
   float    green()       { return _green; };
   float    blue()        { return _blue;  };
 
-  uint32_t RGB()         { return _rgb; };   // 32 bit color
-  uint16_t RGB565();                         // 16 bit color
+  //  red, green, blue should be in 0 .. 1.0 range
+  //  default brightness of 100%,
+  //  returns RGB.
+  uint32_t setRGB(float red, float green, float blue, float brightness = 100);
+
+  uint32_t RGB()         { return _rgb; };   // 32 bit colour
+  uint16_t RGB565();                         // 16 bit colour
 
 private:
   void  _normalize();
 
-  float    _temperature;
-  float    _brightness;
-  float    _red;
-  float    _green;
-  float    _blue;
-  uint32_t _rgb;
+  float    _temperature = 0;
+  float    _brightness  = 0;
+  float    _red   = 0;
+  float    _green = 0;
+  float    _blue  = 0;
+  uint32_t _rgb   = 0;
 };
 
 // -- END OF FILE --
