@@ -107,6 +107,31 @@ unittest(test_Neil_Bartlett)
 }
 
 
+unittest(test_colour_spaces)
+{
+  Kelvin2RGB tempColor;
+
+  fprintf(stderr, "test_colour_spaces\n");
+  tempColor.setRGB(0.1, 0.2, 0.3, 0.9);
+  
+  fprintf(stderr, "BRIGHT: %d\n", tempColor.brightness());
+  fprintf(stderr, "RED   : %d\n", tempColor.red());
+  fprintf(stderr, "GREEN : %d\n", tempColor.green());
+  fprintf(stderr, "BLUE  : %d\n", tempColor.blue());
+  fprintf(stderr, "RGB   : %d\n", tempColor.RGB());
+  fprintf(stderr, "BGR   : %d\n", tempColor.BGR());
+  fprintf(stderr, "CMYK  : %d\n", tempColor.CMYK());
+
+  assertEqualFloat(100, tempColor.brightness(), 0.0001);
+  assertEqualFloat(1, tempColor.red(), 0.0001);
+  assertEqualFloat(0.707636, tempColor.green(), 0.0001);
+  assertEqualFloat(0.424804, tempColor.blue(), 0.0001);
+  assertEqual(16757868, tempColor.RGB());
+  assertEqual(16757868, tempColor.BGR());
+  assertEqual(16757868, tempColor.CMYK());
+}
+
+
 unittest_main()
 
 // --------

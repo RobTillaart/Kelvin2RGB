@@ -126,7 +126,10 @@ uint16_t Kelvin2RGB::RGB565()
 
 uint32_t Kelvin2RGB::CMYK()
 {
-  float k = 1 - Max(Max(_red, _green), _blue);
+  float k = _red;
+  if (k < _green) k = _green;
+  if (k < _blue) k = _blue;
+  k = 1 - k;
   uint8_t c = 255 * (1 - _red   - k) / (1 - k);
   uint8_t m = 255 * (1 - _green - k) / (1 - k);
   uint8_t y = 255 * (1 - _blue  - k) / (1 - k);
