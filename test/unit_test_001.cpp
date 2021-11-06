@@ -112,7 +112,7 @@ unittest(test_colour_spaces)
   Kelvin2RGB tempColor;
 
   fprintf(stderr, "test_colour_spaces\n");
-  tempColor.setRGB(50, 100, 150, 0.9);
+  tempColor.setRGB(0.50, 1.00, 0.75, 0.90);
   
   fprintf(stderr, "BRIGHT: %f\n", tempColor.brightness());
   fprintf(stderr, "RED   : %f\n", tempColor.red());
@@ -122,10 +122,10 @@ unittest(test_colour_spaces)
   fprintf(stderr, "BGR   : %d\n", tempColor.BGR());
   fprintf(stderr, "CMYK  : %d\n", tempColor.CMYK());
 
-  assertEqualFloat(0.9, tempColor.brightness(), 0.0001);
-  assertEqualFloat(0.000004, tempColor.red(),   0.000001);
-  assertEqualFloat(0.000007, tempColor.green(), 0.000001);
-  assertEqualFloat(0.000011, tempColor.blue(),  0.000001);
+  assertEqualFloat(0.900, tempColor.brightness(), 0.0001);
+  assertEqualFloat(0.000, tempColor.red(),   0.0001);
+  assertEqualFloat(0.007, tempColor.green(), 0.0001);
+  assertEqualFloat(0.011, tempColor.blue(),  0.0001);
   assertEqual(16757868, tempColor.RGB());
   assertEqual(16757868, tempColor.BGR());
   assertEqual(-1437269760, tempColor.CMYK());
