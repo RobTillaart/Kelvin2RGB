@@ -91,11 +91,17 @@ more efficient than 3 floats for communication.
 
 ## Future
 
-- separate brightness per colour channel to mimic "artificial illumination"
+- separate brightness per colour channel to mimic "artificial illumination"  (0.2.0 ?)
 - define constants like candleLight as parameter.
 - investigate other formulas.
+- investigate timing and performance
 - investigate usability for RGB led strip.
 - remove begin() ?
+- add unit tests CMYK BGR
+- add examples 
+  - CMYK()
+  - BGR()
+  - Ledstrip()
 
 
 ## Operations
