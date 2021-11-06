@@ -100,12 +100,12 @@ void Kelvin2RGB::convert_NB(float temperature, float brightness)
 }
 
 
-uint32_t Kelvin2RGB::setRGB(float red, float green, float blue, float brightness)
+void Kelvin2RGB::setRGB(float red, float green, float blue, float brightness)
 {
   _brightness = brightness;
-  _red   = red;
-  _green = green;
-  _blue  = blue;
+  _red   = red   * 255;
+  _green = green * 255;
+  _blue  = blue  * 255;
   _normalize();
   return _rgb;
 }

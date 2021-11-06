@@ -112,7 +112,7 @@ unittest(test_colour_spaces)
   Kelvin2RGB tempColor;
 
   fprintf(stderr, "test_colour_spaces\n");
-  tempColor.setRGB(0.50, 1.00, 0.75, 0.90);
+  tempColor.setRGB(0.50, 1.00, 0.75, 90);  // brightness in %
   
   fprintf(stderr, "BRIGHT: %f\n", tempColor.brightness());
   fprintf(stderr, "RED   : %f\n", tempColor.red());

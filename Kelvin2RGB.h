@@ -73,7 +73,7 @@ public:
   float    blue()        { return _blue;  };
 
   //  red, green, blue should be in 0 .. 1.0 range
-  //  default brightness of 100%,
+  //  brightness should be in 0..100%  Default = 100%,
   //  returns RGB.
   uint32_t setRGB(float red, float green, float blue, float brightness = 100);
 
