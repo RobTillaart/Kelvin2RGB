@@ -130,7 +130,7 @@ unittest(test_colour_spaces)
   assertEqual(7595692, tempColor.RGB());
   assertEqual(65792, tempColor.BGR());
   assertEqual(2130722560, tempColor.CMYK());
-  assertEqual(12345, tempColor.RGB565());
+  assertEqual(30517, tempColor.RGB565());
 }
 
 
