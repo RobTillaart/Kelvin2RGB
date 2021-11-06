@@ -61,7 +61,7 @@ That said it is also possible to use this on a 565 image or to adjust color look
 
 ## Interface
 
-The interface is pretty straightforward.
+The interface is straightforward:
 
 - **Kelvin2RGB()** constructor
 - **void begin()** empty function for now.
@@ -79,14 +79,15 @@ The interface is pretty straightforward.
 note this is different from Helland / Bartlett who both use an integer value 0 .. 255
 - **float green()** returns green channel weight 0.0 .. 1.0
 - **float blue()** returns blue channel weight 0.0 .. 1.0
-- **uint32_t setRGB(float red, float green, float blue, float brightness = 100)** sets RGB values, 
+- **uint32_t setRGB(float red, float green, float blue, float brightness = 100)** sets RGB values 
+red, green, blue should be in 0 .. 1.0 range. brightness should be in 0..100%, Default = 100%.
 returns a 24 bit RGB value,  
-- **uint32_t RGB()** returns a 24 bit RGB value,  
+- **uint32_t RGB()** returns a 24 bit RGB value, 0 .. 16777215
 more efficient than 3 floats for communication. 
 - **uint16_t RGB565()** returns a 16 bit RGB value, 
-5 bits for R 6 for green and 5 for blue.
-- **uint32_t BGR()** returns a 24 bit BGR value,  
-- **uint32_t CMYK()** returns a 24 bit BGR value,  
+5 bits for red, 6 for green and 5 for blue.
+- **uint32_t BGR()** returns a 24 bit BGR value, 0 .. 16777215
+- **uint32_t CMYK()** returns a 32 bit = 4 byte CMYK value,  
 
 
 ## Future
@@ -97,11 +98,10 @@ more efficient than 3 floats for communication.
 - investigate timing and performance
 - investigate usability for RGB led strip.
 - remove begin() ?
-- add unit tests CMYK BGR
 - add examples 
   - CMYK()
   - BGR()
-  - Ledstrip()
+  - Led-strip()
 
 
 ## Operations
