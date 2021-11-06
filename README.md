@@ -64,11 +64,12 @@ That said it is also possible to use this on a 565 image or to adjust color look
 The interface is pretty straightforward.
 
 - **Kelvin2RGB()** constructor
-- **begin()** for now an empty function.
-- **convert_TH(float temperature, float brightness = 100)**  
+- **void begin()** empty function for now.
+- **void reset()** resets all internal values to 0.
+- **void convert_TH(float temperature, float brightness = 100)**  
     temperature = 0..65500   temperature below 1000 is not well defined.  
     brightness = 0..100%, 
-- **convert_NB(float temperature, float brightness = 100)**  
+- **void convert_NB(float temperature, float brightness = 100)**  
     temperature = 0..65500   temperature below 1000 is not well defined.  
     brightness = 0..100%, 
     Is a bit more accurate and slightly slower (few %). Read link above for more information.
@@ -78,22 +79,23 @@ The interface is pretty straightforward.
 note this is different from Helland / Bartlett who both use an integer value 0 .. 255
 - **float green()** returns green channel weight 0.0 .. 1.0
 - **float blue()** returns blue channel weight 0.0 .. 1.0
-- **uint32_t RGB()** retuns a 24 bit RGB value,  
+- **uint32_t setRGB(float red, float green, float blue, float brightness = 100)** sets RGB values, 
+returns a 24 bit RGB value,  
+- **uint32_t RGB()** returns a 24 bit RGB value,  
 more efficient than 3 floats for communication. 
-- **uint16_t RGB565()** retuns a 16 bit RGB value, 
-5 bits for R 6 for green and 5 for blue. 
+- **uint16_t RGB565()** returns a 16 bit RGB value, 
+5 bits for R 6 for green and 5 for blue.
+- **uint32_t BGR()** returns a 24 bit BGR value,  
+- **uint32_t CMYK()** returns a 24 bit BGR value,  
 
 
 ## Future
 
-- separate brightness per color channel to mimic "artificial illumination"
+- separate brightness per colour channel to mimic "artificial illumination"
 - define constants like candleLight as parameter.
 - investigate other formulas.
-- investigate usability for RGB ledstrip.
+- investigate usability for RGB led strip.
 - remove begin() ?
-- add reset() ?
-- add BGR() ?
-- add CMYK() ?
 
 
 ## Operations

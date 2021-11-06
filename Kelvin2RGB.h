@@ -17,7 +17,7 @@
 //
 // Based upon article Tanner Helland  and Neil Bartlett
 // http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
-// http://www.zombieprototypes.com/?p=210  
+// http://www.zombieprototypes.com/?p=210
 // https://en.wikipedia.org/wiki/Color_temperature#Categorizing_different_lighting
 //
 //
@@ -56,8 +56,10 @@ class Kelvin2RGB
 {
 public:
   Kelvin2RGB();
+
   void begin();         // empty function - obsolete?
-  
+  void reset();
+
   //  temp = 0..65500   brightness = 0.0 .. 100.0%
   void convert_TH(float temperature, float brightness = 100);
   void convert_NB(float temperature, float brightness = 100);
@@ -77,6 +79,11 @@ public:
 
   uint32_t RGB()         { return _rgb; };   // 32 bit colour
   uint16_t RGB565();                         // 16 bit colour
+
+  // experimental 0.1.3
+  uint32_t CMYK();
+  uint32_t BGR();
+
 
 private:
   void  _normalize();
