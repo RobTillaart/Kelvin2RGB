@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - extended keywords.txt
 - move all code to .cpp
 - fix bug in **BGR()**
+- fix unit test BGR-bug
 
 
 ## [0.1.4] - 2021-12-20
