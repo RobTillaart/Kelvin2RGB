@@ -89,8 +89,7 @@ red, green, blue should be in 0 .. 1.0 range. brightness should be in 0..100%, D
 returns a 24 bit RGB value,
 - **uint32_t RGB()** returns a 24 bit RGB value, 0 .. 16777215
 more efficient than 3 floats for communication.
-- **uint16_t RGB565()** returns a 16 bit RGB value,
-5 bits for red, 6 for green and 5 for blue.
+- **uint16_t RGB565()** returns a 16 bit RGB value, 5 bits for red, 6 for green and 5 for blue.
 - **uint32_t BGR()** returns a 24 bit BGR value, 0 .. 16777215
 - **uint32_t CMYK()** returns a 32 bit = 4 byte CMYK value,
 
@@ -109,7 +108,6 @@ See examples
 - define constants like candleLight as parameter.
 - investigate other formulas.
 - investigate usability for RGB led strip.
-
 
 #### Could
 

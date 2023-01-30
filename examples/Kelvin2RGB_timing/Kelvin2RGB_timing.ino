@@ -76,7 +76,8 @@ void test_timing()
   }
   stop = micros();
   Serial.print("RGB:\t");
-  Serial.println(stop - start);
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(RGB);
   delay(100);
 
@@ -88,7 +89,8 @@ void test_timing()
   }
   stop = micros();
   Serial.print("CMYK:\t");
-  Serial.println(stop - start);
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(CMYK);
   delay(100);
 
@@ -100,7 +102,8 @@ void test_timing()
   }
   stop = micros();
   Serial.print("BGR:\t");
-  Serial.println(stop - start);
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(BGR);
   delay(100);
 
@@ -112,7 +115,8 @@ void test_timing()
   }
   stop = micros();
   Serial.print("RGB565:\t");
-  Serial.println(stop - start);
+  Serial.print(stop - start);
+  Serial.print("\t");
   Serial.println(RGB565);
 }
 
