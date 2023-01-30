@@ -13,11 +13,11 @@ Arduino library for converting temperature and brightness to RGB values.
 
 ## Credentials
 
-This library is based upon an article of Tanner Helland
-and a related story by Neil Bartlett
-http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
-http://www.zombieprototypes.com/?p=210
-https://en.wikipedia.org/wiki/Color_temperature#Categorizing_different_lighting
+This library is based upon an article of Tanner Helland and a related story by Neil Bartlett
+
+- http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
+- http://www.zombieprototypes.com/?p=210
+- https://en.wikipedia.org/wiki/Color_temperature#Categorizing_different_lighting
 
 There are more approximation formulas, some claim to be better,
 however these are not investigated. On request these can be added.
@@ -26,14 +26,14 @@ however these are not investigated. On request these can be added.
 ## Description
 
 The library converts a temperature in Kelvin and a brightness (0..100%)
- to 3 numbers red, green and blue.
+ to three numbers **red**, **green** and **blue**.
 These numbers are weights can be used to correct a colour image for virtual white temperature.
 
-There are 2 convert functions where the **convert_NB()** is claimed to be
+There are two convert functions where the **convert_NB()** is claimed to be
 the more accurate one.
 
-With the numbers R,G,B calculated one can convert images so they will look
-more like taken with candle light, sunrise or sunset etc.
+With the numbers **red**, **green** and **blue** calculated one can convert images 
+so they will look more like taken with candle light, sunrise or sunset etc.
 
 
 **pseudo code**
@@ -51,15 +51,19 @@ for each pixel in image
 }
 ```
 
-The numbers can also be used to reduce the blue channel so it has less effect
+The numbers can also be used to reduce the blue channel so it has less effect 
 on "getting sleepy".
 
 The library uses floats for the R,G and B weights to keep values as accurate as possible.
 Especially with images with more than 8 bits per channel this is preferred.
-That said it is also possible to use this on a 565 image or to adjust color lookup tables.
+That said it is also possible to use this on a 565 image or to adjust colour lookup tables.
 
 
 ## Interface
+
+```cpp
+#include "Kelvin2RGB.h"
+```
 
 The interface is straightforward:
 
@@ -98,21 +102,26 @@ See examples
 
 ## Future
 
-#### must
+#### Must
+
+#### Should
+
+- define constants like candleLight as parameter.
+- investigate other formulas.
+- investigate usability for RGB led strip.
+
+
+#### Could
+
+- separate brightness per colour channel to mimic "artificial illumination"  (0.2.0 ?)
+- remove begin() ?
 - add examples
+  - ledstrip
   - CMYK()
   - BGR()
 
-#### should
-- define constants like candleLight as parameter.
-- investigate other formulas.
-- investigate timing and performance
-- investigate usability for RGB led strip.
+#### Wont
+
 - investigate **RGB_10_12_10()**
-
-#### could
-- separate brightness per colour channel to mimic "artificial illumination"  (0.2.0 ?)
-- remove begin() ?
-- example Led-strip()
-
+  - nowhere used (not found)
 
