@@ -77,39 +77,43 @@ void test_timing()
   stop = micros();
   Serial.print("RGB:\t");
   Serial.println(stop - start);
+  Serial.println(RGB);
   delay(100);
 
-  volatile uint32_t cmyk = 0;
+  volatile uint32_t CMYK;
   start = micros();
   for (int i = 0; i < 1000; i++)
   {
-    cmyk = KRGB.CMYK();
+    CMYK = KRGB.CMYK();
   }
   stop = micros();
   Serial.print("CMYK:\t");
   Serial.println(stop - start);
+  Serial.println(CMYK);
   delay(100);
 
-  volatile uint32_t bgr = 0;
+  volatile uint32_t BGR;
   start = micros();
   for (int i = 0; i < 1000; i++)
   {
-    bgr = KRGB.BGR();
+    BGR = KRGB.BGR();
   }
   stop = micros();
   Serial.print("BGR:\t");
   Serial.println(stop - start);
+  Serial.println(BGR);
   delay(100);
 
-  volatile uint16_t rgb565 = 0;
+  volatile uint16_t RGB565;
   start = micros();
   for (int i = 0; i < 1000; i++)
   {
-    rgb565 = KRGB.RGB565();
+    RGB565 = KRGB.RGB565();
   }
   stop = micros();
   Serial.print("RGB565:\t");
   Serial.println(stop - start);
+  Serial.println(RGB565);
 }
 
 
