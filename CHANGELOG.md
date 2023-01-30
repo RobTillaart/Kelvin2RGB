@@ -6,14 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [0.1.5] - 2022-11-14
+## [0.1.6] - 2022-11-14
 - major improvement **BGR()**
 - minor improvement **CMYK()**
 - extend timing example.
 - update readme.md
 - update GitHub actions
 - update license 2023
-
 
 
 ## [0.1.5] - 2022-11-14
