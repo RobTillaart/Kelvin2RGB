@@ -30,12 +30,6 @@ void Kelvin2RGB::begin()
 }
 
 
-void Kelvin2RGB::reset()
-{
-  begin();
-}
-
-
 ////////////////////////////////////////////////////////////////
 //
 //  Tanner Helland formulas
