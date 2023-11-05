@@ -15,16 +15,11 @@
 
 Kelvin2RGB::Kelvin2RGB()
 {
-  reset();
+  begin();
 }
 
 //  empty function for now, remove?
 void Kelvin2RGB::begin()
-{
-}
-
-
-void Kelvin2RGB::reset()
 {
   _temperature = 0;
   _brightness  = 0;          //  default = darkness
@@ -32,6 +27,12 @@ void Kelvin2RGB::reset()
   _green = 0;
   _blue  = 0;
   _rgb   = 0;
+}
+
+
+void Kelvin2RGB::reset()
+{
+  begin();
 }
 
 
@@ -113,31 +114,31 @@ void Kelvin2RGB::convert_NB(float temperature, float brightness)
 float Kelvin2RGB::temperature()
 {
   return _temperature;
-};
+}
 
 
 float Kelvin2RGB::brightness()
 {
   return _brightness;
-};
+}
 
 
 float Kelvin2RGB::red()
 {
   return _red;
-};
+}
 
 
 float Kelvin2RGB::green()
 {
   return _green;
-};
+}
 
 
 float Kelvin2RGB::blue()
 {
   return _blue;
-};
+}
 
 
 uint32_t Kelvin2RGB::setRGB(float red, float green, float blue, float brightness)
@@ -157,7 +158,7 @@ uint32_t Kelvin2RGB::setRGB(float red, float green, float blue, float brightness
 uint32_t Kelvin2RGB::RGB()
 {
   return _rgb;
-};
+}
 
 
 

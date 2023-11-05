@@ -62,6 +62,12 @@ Especially with images with more than 8 bits per channel this is preferred.
 That said it is also possible to use this on a 565 image or to adjust colour lookup tables.
 
 
+#### Related
+
+- https://github.com/RobTillaart/Kelvin2RGB
+- https://github.com/RobTillaart/map2colour
+
+
 ## Interface
 
 ```cpp
@@ -70,10 +76,9 @@ That said it is also possible to use this on a 565 image or to adjust colour loo
 
 The interface is straightforward:
 
-- **Kelvin2RGB()** constructor
-- **void begin()** empty function for now.
-- **void reset()** resets all internal values to 0. 
-All colours, brightness and temperature.
+- **Kelvin2RGB()** constructor.
+- **void begin()** resets all internal values to 0. 
+    All colours, brightness and temperature.
 - **void convert_TH(float temperature, float brightness = 100)**
     temperature = 0..65500   temperature below 1000 is not well defined.
     brightness = 0..100%,
@@ -84,17 +89,22 @@ All colours, brightness and temperature.
 - **float temperature()** returns temperature, to check the value used.
 - **float brightness()** returns brightness, to check the value used.
 - **float red()** returns red channel weight 0.0 .. 1.0
-note this is different from Helland / Bartlett who both use an integer value 0 .. 255
+    note this is different from Helland / Bartlett who both use an integer value 0 .. 255
 - **float green()** returns green channel weight 0.0 .. 1.0
 - **float blue()** returns blue channel weight 0.0 .. 1.0
 - **uint32_t setRGB(float red, float green, float blue, float brightness = 100)** sets RGB values
-red, green, blue should be in 0 .. 1.0 range. brightness should be in 0..100%, Default = 100%.
-returns a 24 bit RGB value,
+    red, green, blue should be in 0 .. 1.0 range. brightness should be in 0..100%, Default = 100%.
+    returns a 24 bit RGB value,
 - **uint32_t RGB()** returns a 24 bit RGB value, 0 .. 16777215
-more efficient than 3 floats for communication.
+    more efficient than 3 floats for communication.
 - **uint16_t RGB565()** returns a 16 bit RGB value, 5 bits for red, 6 for green and 5 for blue.
 - **uint32_t BGR()** returns a 24 bit BGR value, 0 .. 16777215
 - **uint32_t CMYK()** returns a 32 bit = 4 byte CMYK value,
+
+
+#### Obsolete
+
+- **void reset()** => replaced by **begin()**
 
 
 ## Operations
@@ -117,13 +127,10 @@ See examples
 #### Could
 
 - separate brightness per colour channel to mimic "artificial illumination"  (0.2.0 ?)
-- remove begin() ?
+- remove begin() or reset() ?
 - add examples
   - ledstrip
-  - CMYK()
-  - BGR()
 - use a "dirty flag" to minimize math operations.
-
 
 #### Wont
 
