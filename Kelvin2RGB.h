@@ -2,13 +2,13 @@
 //
 //    FILE: Kelvin2RGB.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.6
+// VERSION: 0.1.7
 //    DATE: 2018-01-31
 // PURPOSE: Arduino library for converting temperature to RGB values
 //     URL: https://github.com/RobTillaart/Kelvin2RGB
 
 
-#define KELVIN2RGB_LIB_VERSION            (F("0.1.6"))
+#define KELVIN2RGB_LIB_VERSION            (F("0.1.7"))
 
 #include "Arduino.h"
 

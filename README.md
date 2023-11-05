@@ -2,8 +2,11 @@
 [![Arduino CI](https://github.com/RobTillaart/Kelvin2RGB/workflows/Arduino%20CI/badge.svg)](https://github.com/marketplace/actions/arduino_ci)
 [![Arduino-lint](https://github.com/RobTillaart/Kelvin2RGB/actions/workflows/arduino-lint.yml/badge.svg)](https://github.com/RobTillaart/Kelvin2RGB/actions/workflows/arduino-lint.yml)
 [![JSON check](https://github.com/RobTillaart/Kelvin2RGB/actions/workflows/jsoncheck.yml/badge.svg)](https://github.com/RobTillaart/Kelvin2RGB/actions/workflows/jsoncheck.yml)
+[![GitHub issues](https://img.shields.io/github/issues/RobTillaart/Kelvin2RGB.svg)](https://github.com/RobTillaart/Kelvin2RGB/issues)
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/RobTillaart/Kelvin2RGB/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/RobTillaart/Kelvin2RGB.svg?maxAge=3600)](https://github.com/RobTillaart/Kelvin2RGB/releases)
+[![PlatformIO Registry](https://badges.registry.platformio.org/packages/robtillaart/library/Kelvin2RGB.svg)](https://registry.platformio.org/libraries/robtillaart/Kelvin2RGB)
 
 
 # Kelvin2RGB
@@ -103,6 +106,8 @@ See examples
 
 #### Must
 
+- improve documentations.
+
 #### Should
 
 - define constants like candleLight as parameter.
@@ -117,9 +122,20 @@ See examples
   - ledstrip
   - CMYK()
   - BGR()
+- use a "dirty flag" to minimize math operations.
+
 
 #### Wont
 
 - investigate **RGB_10_12_10()**
   - nowhere used (not found)
+
+
+## Support
+
+If you appreciate my libraries, you can support the development and maintenance.
+Improve the quality of the libraries by providing issues and Pull Requests, or
+donate through PayPal or GitHub sponsors.
+
+Thank you,
 

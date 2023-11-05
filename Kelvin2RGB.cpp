@@ -1,7 +1,7 @@
 //
 //    FILE: Kelvin2RGB.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.6
+// VERSION: 0.1.7
 //    DATE: 2018-01-31
 // PURPOSE: Arduino library for converting temperature to RGB values
 //     URL: https://github.com/RobTillaart/Kelvin2RGB
@@ -203,10 +203,10 @@ uint32_t Kelvin2RGB::BGR()
 
 /////////////////////////////////////////////////////////////
 //
-// private
+//  PRIVATE
 //
 
-// expects _red, _green, _blue in the 0..255 range.
+//  expects _red, _green, _blue in the 0..255 range.
 void Kelvin2RGB::_normalize()
 {
   float f = 0.01 * _brightness;
@@ -217,12 +217,12 @@ void Kelvin2RGB::_normalize()
 
   _rgb   = round(_red) * 65536UL + round(_green) * 256UL + round(_blue);
 
-  // divide by 255 to get factors between 0..1
+  //  divide by 255 to get factors between 0..1
   _red   *=  DIVIDE_255;
   _green *=  DIVIDE_255;
   _blue  *=  DIVIDE_255;
 }
 
 
-// -- END OF FILE --
+//  -- END OF FILE --
 
