@@ -81,7 +81,7 @@ unittest(test_constructor)
 {
   Kelvin2RGB tempColor;
 
-  tmpColor.begin();
+  tempColor.begin();
 
   assertEqualFloat(0, tempColor.temperature(), 0.0001);
   assertEqualFloat(0, tempColor.brightness(), 0.0001);
@@ -96,7 +96,7 @@ unittest(test_Tanner_Helland)
 {
   Kelvin2RGB tempColor;
 
-  tmpColor.begin();
+  tempColor.begin();
 
   fprintf(stderr, "DLS_warmWhite\n");
   tempColor.convert_TH(DLS_warmWhite, 100);
@@ -114,7 +114,7 @@ unittest(test_Neil_Bartlett)
 {
   Kelvin2RGB tempColor;
 
-  tmpColor.begin();
+  tempColor.begin();
 
   fprintf(stderr, "DLS_warmWhite\n");
   tempColor.convert_NB(DLS_warmWhite, 100);
@@ -132,7 +132,7 @@ unittest(test_colour_spaces)
 {
   Kelvin2RGB tempColor;
 
-  tmpColor.begin();
+  tempColor.begin();
 
   fprintf(stderr, "test_colour_spaces\n");
   tempColor.setRGB(0.50, 1.00, 0.75, 90);  // brightness in %
