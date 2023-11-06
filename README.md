@@ -62,10 +62,24 @@ Especially with images with more than 8 bits per channel this is preferred.
 That said it is also possible to use this on a 565 image or to adjust colour lookup tables.
 
 
+#### Celsius and Fahrenheit
+
+To use Celsius or Fahrenheit with the **Kelvin2RGB** library, 
+one need to convert that temperature to Kelvin.
+
+```cpp
+Kelvin = Celsius + 273.15;
+Kelvin = (Fahrenheit - 32) * 5 / 9 - 273.15;
+// or shorter
+Kelvin = (Fahrenheit - 523.67) * 0.5555555555;
+```
+
+
 #### Related
 
 - https://github.com/RobTillaart/Kelvin2RGB
-- https://github.com/RobTillaart/map2colour
+- https://github.com/RobTillaart/map2colour   map float onto a colour(gradient).
+- https://github.com/RobTillaart/Temperature  temperature scale convertors
 
 
 ## Interface
